@@ -9,7 +9,6 @@ const {animals} = require('./data/animals');
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
-    // Note that we save the animalsArray as filteredResults here:
     let filteredResults = animalsArray;
 
     if (query.personalityTraits) {
@@ -54,6 +53,12 @@ function findById(id, animalsArray) {
     return result;
 }
 
+//second route
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+      res.json(result);
+});
+
 //a route that the front-end can request data from
 app.get('/api/animals', (req, res) => {
     let results = animals;
@@ -64,16 +69,6 @@ app.get('/api/animals', (req, res) => {
     res.json(results);
 });
 
-//second route
-app.get('/api/animals/:id', (req, res) => {
-    const result = findById(req.params.id, animals);
-      res.json(result);
-});
-
-app.listen(PORT, () => {
-    console.log(`API server now on port ${PORT}!`);
-});
-
 //err message if animal doesnt exist
 app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
@@ -82,4 +77,9 @@ app.get('/api/animals/:id', (req, res) => {
     } else {
       res.send(404);
     }
-  });
+});
+
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
+});
+
