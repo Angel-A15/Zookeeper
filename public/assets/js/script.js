@@ -1,6 +1,6 @@
 const $animalForm = document.querySelector('#animal-form');
 const $zookeeperForm = document.querySelector('#zookeeper-form');
-const $zookeeperForm = document.querySelector('#zookeeper-form');
+
 
 const handleAnimalFormSubmit = event => {
   event.preventDefault();

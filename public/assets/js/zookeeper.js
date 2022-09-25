@@ -1,4 +1,5 @@
 const $zookeeperForm = document.querySelector("#zookeeper-form");
+const $displayArea = document.querySelector('#display-area');
 
 const getZookeepers = (formData = {}) => {
   let queryUrl = '/api/zookeepers?';

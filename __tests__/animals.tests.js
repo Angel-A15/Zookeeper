@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 jest.mock('fs');
 
 const {
@@ -7,6 +8,7 @@ const {
   createNewAnimal,
   validateAnimal,
 } = require("../lib/animals.js");
+
 const { animals } = require("../data/animals");
 
 test("creates an animal object", () => {

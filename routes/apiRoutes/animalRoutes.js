@@ -6,22 +6,22 @@ const {animals} = require('../../data/animals');
 
 //a route that the front-end can request data from
 router.get('/animals', (req, res) => {
-    let results = animals;
-    if (req.query) {
-        results = filterByQuery(req.query, results);
-    }
+  let results = animals;
+  if (req.query) {
+    results = filterByQuery(req.query, results);
+  }
 
-    res.json(results);
+  res.json(results);
 });
 
 //err message if animal doesnt exist
 router.get('/animals/:id', (req, res) => {
-    const result = findById(req.params.id, animals);
-    if (result) {
-      res.json(result);
-    } else {
-      res.send(404);
-    }
+  const result = findById(req.params.id, animals);
+  if (result) {
+    res.json(result);
+  } else {
+    res.send(404);
+  }
 });
 
 
